@@ -61,10 +61,11 @@
     "category" : "wm.Variable",
     "dataBinding" : [ ],
     "dataSet" : {
+      "af" : "Afrikaans",
       "en" : "English",
       "hi-in" : "हिंदी (भारत)",
       "te-in" : "తెలుగు (భారత దేశం)",
-      "af" : "Afrikaans"
+      "fr" : "français"
     },
     "type" : "string",
     "isList" : false,
