@@ -693,11 +693,11 @@
       "package" : "com.mobile_localization.hrdb.Employee"
     } ],
     "filterFields" : { },
-    "package" : "com.mobile_localization.hrdb.Employee",
     "filterExpressions" : {
       "condition" : "AND",
       "rules" : [ ]
-    }
+    },
+    "package" : "com.mobile_localization.hrdb.Employee"
   },
   "HrdbExecuteUser" : {
     "_id" : "wm-HrdbUserData-wm.ServiceVariable-1551093095837",
@@ -814,10 +814,10 @@
     "properties" : [ ],
     "relatedTables" : [ ],
     "filterFields" : { },
-    "package" : "com.mobile_localization.hrdb.User",
     "filterExpressions" : {
       "condition" : "AND",
       "rules" : [ ]
-    }
+    },
+    "package" : "com.mobile_localization.hrdb.User"
   }
 }

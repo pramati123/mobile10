@@ -2565,7 +2565,7 @@ a.wm-app .bg-danger:focus {
   font-size: 12px;
   line-height: 1.42857143;
   color: #b7bdc2;
-  background-color: transparent;
+  background-color: #fff;
   background-image: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0;
@@ -5678,7 +5678,7 @@ button.wm-app .list-group-item-danger.active:focus {
   border-color: #ddd;
 }
 .wm-app .panel-default > .panel-heading {
-  color: #adb7c2;
+  color: #fff;
   background-color: #15202D;
   border-color: #ddd;
 }
@@ -5687,7 +5687,7 @@ button.wm-app .list-group-item-danger.active:focus {
 }
 .wm-app .panel-default > .panel-heading .badge {
   color: #15202D;
-  background-color: #adb7c2;
+  background-color: #fff;
 }
 .wm-app .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ddd;
@@ -5696,7 +5696,7 @@ button.wm-app .list-group-item-danger.active:focus {
   border-color: #d9534f;
 }
 .wm-app .panel-primary > .panel-heading {
-  color: #adb7c2;
+  color: #fff;
   background-color: #d9534f;
   border-color: #d9534f;
 }
@@ -5705,7 +5705,7 @@ button.wm-app .list-group-item-danger.active:focus {
 }
 .wm-app .panel-primary > .panel-heading .badge {
   color: #d9534f;
-  background-color: #adb7c2;
+  background-color: #fff;
 }
 .wm-app .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #d9534f;
@@ -6894,10 +6894,10 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .app-popover a {
   letter-spacing: .025em;
   font-weight: bold;
-  padding: .93em 1em;
+  padding: 1em;
   position: relative;
   border-radius: 0;
-  line-height: 24pt;
+  line-height: 1;
   color: #adb7c2;
 }
 .wm-app .app-nav .app-nav-item a:hover,
@@ -6924,9 +6924,15 @@ button.wm-app .close {
   width: 1.2em;
   text-align: center;
 }
+.wm-app .app-nav .app-nav-item a .caret,
+.wm-app .app-nav .app-nav-item .btn .caret,
+.wm-app .app-nav .app-nav-item .dropdown a .caret,
+.wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle .caret,
+.wm-app .app-nav .app-nav-item .app-popover a .caret {
+  margin-top: 0;
+  height: auto;
+}
 .wm-app .app-nav .app-nav-item > .dropdown.open .dropdown-menu {
-  position: relative;
-  border: 0;
   background-color: #15202D;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: none;

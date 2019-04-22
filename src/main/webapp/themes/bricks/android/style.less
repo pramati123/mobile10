@@ -188,10 +188,10 @@
       a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
         letter-spacing: .025em;
         font-weight: bold;
-        padding: .93em 1em;
+        padding: 1em;
         position: relative;
         border-radius: 0;
-        line-height: 24pt;
+        line-height: 1;
         color: @text-color;
         &:hover {
           text-decoration: none;
@@ -205,12 +205,14 @@
           width: 1.2em;
           text-align: center;
         }
+        .caret {
+          margin-top: 0;
+          height: auto;
+        }
       }
 
       > .dropdown.open {
         .dropdown-menu {
-          position: relative;
-          border: 0;
           background-color: @panel-bg;
           border-bottom: 1px solid @input-border;
           box-shadow: none;

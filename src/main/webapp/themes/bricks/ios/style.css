@@ -6821,6 +6821,9 @@ button.wm-app .close {
 .wm-app .app-mobile-navbar .navbar .navbar-nav.navbar-right > li > a {
   outline-width: 0;
 }
+.wm-app .app-mobile-navbar .navbar .navbar-nav.navbar-right > li .dropdown .dropdown-menu {
+  background-color: #15202D;
+}
 .wm-app .app-mobile-navbar .navbar .navbar-nav.navbar-right > li .dropdown .dropdown-menu > li > a:hover {
   color: #d9534f;
 }
@@ -6928,10 +6931,10 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .app-popover a {
   letter-spacing: .025em;
   font-weight: bold;
-  padding: .93em 1em;
+  padding: 1em;
   position: relative;
   border-radius: 0;
-  line-height: 24pt;
+  line-height: 1;
   color: #adb7c2;
 }
 .wm-app .app-nav .app-nav-item a:hover,
@@ -6960,13 +6963,16 @@ button.wm-app .close {
   width: 1.2em;
   text-align: center;
 }
+.wm-app .app-nav .app-nav-item a .caret,
+.wm-app .app-nav .app-nav-item .btn .caret,
+.wm-app .app-nav .app-nav-item .dropdown a .caret,
+.wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle .caret,
+.wm-app .app-nav .app-nav-item .app-popover a .caret {
+  margin-top: 0;
+  height: auto;
+}
 .wm-app .app-nav .app-nav-item > .dropdown.open .dropdown-menu {
-  position: relative;
-  border: 0;
   background-color: #15202D;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  margin-left: 0;
 }
 .wm-app .app-nav .app-nav-item > .dropdown.open .dropdown-menu li {
   border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
@@ -7034,7 +7040,6 @@ button.wm-app .close {
 .wm-app .nav-tabs > li .app-menu a .app-icon {
   background-size: 100%;
   margin-right: 0.417em;
-  top: 0.167em;
 }
 .wm-app .nav-tabs > li.active > a,
 .wm-app .nav-tabs > li.active .app-menu a {
@@ -7102,6 +7107,9 @@ button.wm-app .close {
 .wm-app .carousel-control .glyphicon-chevron-right {
   color: grey;
   text-shadow: none;
+}
+.wm-app .app-card {
+  background-color: #15202D;
 }
 .wm-app .modal-dialog {
   margin: 50% 10px;
@@ -7172,10 +7180,10 @@ button.wm-app .close {
   padding-left: 0;
   padding-right: 0;
 }
-.wm-app .app-form .app-composite-widget.caption-top label,
-.wm-app .app-liveform .app-composite-widget.caption-top label,
-.wm-app .app-device-liveform .app-composite-widget.caption-top label,
-.wm-app .app-livefilter .app-composite-widget.caption-top label {
+.wm-app .app-form .app-composite-widget.caption-top .control-label,
+.wm-app .app-liveform .app-composite-widget.caption-top .control-label,
+.wm-app .app-device-liveform .app-composite-widget.caption-top .control-label,
+.wm-app .app-livefilter .app-composite-widget.caption-top .control-label {
   width: 33%;
 }
 .wm-app .app-form .app-grid-layout input,
@@ -7235,9 +7243,6 @@ button.wm-app .close {
   margin: 0;
   border-radius: 0;
 }
-.wm-app .form-group .app-select {
-  background-color: transparent !important;
-}
 .wm-app .form-group.live-field.active .control-label {
   color: #d9534f;
 }
@@ -7262,7 +7267,6 @@ button.wm-app .close {
 .wm-app .form-control {
   box-shadow: none;
   height: 31px;
-  background-color: transparent;
   color: #b7bdc2;
   font-size: 10pt;
   border-color: transparent !important;
@@ -7276,7 +7280,6 @@ button.wm-app .close {
 .wm-app .form-control.app-select,
 .wm-app .form-control:focus.app-select {
   color: #b7bdc2;
-  background-color: transparent;
 }
 .wm-app .app-spinner {
   background-color: transparent;

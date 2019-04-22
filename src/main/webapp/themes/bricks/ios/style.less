@@ -116,9 +116,12 @@
             outline-width: 0;
           }
           .dropdown {
-            .dropdown-menu > li > a {
-              &:hover {
-                color: @brand-primary;
+            .dropdown-menu {
+              background-color: @body-bg;
+              > li > a {
+                &:hover {
+                  color: @brand-primary;
+                }
               }
             }
           }
@@ -223,10 +226,10 @@
       a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
         letter-spacing: .025em;
         font-weight: bold;
-        padding: .93em 1em;
+        padding: 1em;
         position: relative;
         border-radius: 0;
-        line-height: 24pt;
+        line-height: 1;
         color: @text-color;
         &:hover {
           text-decoration: none;
@@ -242,16 +245,15 @@
           width: 1.2em;
           text-align: center;
         }
+        .caret {
+          margin-top: 0;
+          height: auto;
+        }
       }
 
       > .dropdown.open {
         .dropdown-menu {
-          position: relative;
-          border: 0;
           background-color: @panel-bg;
-          border-bottom: 1px solid @input-border;
-          box-shadow: none;
-          margin-left: 0;
           li {
             border-bottom: 1px @wm-header-border-color solid;
             a {
@@ -335,7 +337,6 @@
         .app-icon {
           background-size: 100%;
           margin-right: 0.417em;
-          top: 0.167em;
         }
       }
       &.active {
@@ -440,6 +441,11 @@
       color: grey;
       text-shadow: none;
     }
+  }
+
+  //Card Styles
+  .app-card {
+    background-color: @body-bg;
   }
 
 //modal dialog
@@ -558,7 +564,7 @@
 /*******************************************************************************************/
   .app-form, .app-liveform, .app-device-liveform, .app-livefilter {
     .app-composite-widget {
-      &.caption-top label {
+      &.caption-top .control-label {
         width: 33%;
       }
     }
@@ -598,9 +604,6 @@
       margin: 0;
       border-radius: 0;
     }
-    .app-select {
-      background-color: transparent !important;
-    }
     &.live-field.active {
       .control-label {
         color: @brand-primary;
@@ -627,7 +630,6 @@
  .form-control {
     box-shadow: none;
     height: @input-height-base;
-    background-color: transparent;
     color: @input-color;
     font-size: 10pt;
     border-color: transparent !important;
@@ -639,7 +641,6 @@
     }
 	&.app-select,&:focus.app-select {
       color: @input-color;
-      background-color: transparent;
     }
  }
 
