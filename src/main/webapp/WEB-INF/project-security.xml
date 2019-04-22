@@ -122,7 +122,7 @@
         <constructor-arg ref="csrfTokenRepository"/>
     </bean>
     <security:authentication-manager id="authenticationManager">
-        <security:authentication-provider ref="databaseAuthenticationProvider"/>
+        <security:authentication-provider ref="demoAuthenticationProvider"/>
         <security:authentication-provider ref="rememberMeAuthenticationProvider"/>
     </security:authentication-manager>
     <bean class="com.wavemaker.runtime.security.WMAppAccessDeniedHandler" id="wmAppAccessDeniedHandler"/>
@@ -237,43 +237,31 @@
         <property name="redirectStrategy" ref="redirectStrategyBean"/>
     </bean>
     <bean class="org.springframework.security.web.DefaultRedirectStrategy" id="redirectStrategyBean"/>
-    <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="databaseAuthenticationProvider">
-        <property name="userDetailsService" ref="jdbcDaoImpl"/>
+    <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="demoAuthenticationProvider">
+        <property name="userDetailsService" ref="demoUserDetailsService"/>
     </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.users.DefaultUserProviderImpl" id="defaultUserProvider">
-        <property name="usersByUsernameQuery">
-            <value>SELECT userId, password, 1, username FROM User WHERE username = ?</value>
-        </property>
-        <property name="hql" value="true"/>
-        <property name="hibernateTemplate">
-            <ref bean="hrdbTemplate"/>
-        </property>
-        <property name="transactionManager">
-            <ref bean="hrdbTransactionManager"/>
-        </property>
-    </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.authorities.DefaultAuthoritiesProviderImpl" id="defaultAuthoritiesProvider">
-        <property name="hql" value="true"/>
-        <property name="rolePrefix">
-            <value>ROLE_</value>
-        </property>
-        <property name="authoritiesByUsernameQuery">
-            <value>SELECT userId, 'DEFAULT_NO_ROLES' FROM User WHERE username = ?</value>
-        </property>
-        <property name="rolesByQuery" value="true"/>
-        <property name="hibernateTemplate">
-            <ref bean="hrdbTemplate"/>
-        </property>
-        <property name="transactionManager">
-            <ref bean="hrdbTransactionManager"/>
-        </property>
-    </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.DatabaseUserDetailsService" id="jdbcDaoImpl">
-        <property name="userProvider">
-            <ref bean="defaultUserProvider"/>
-        </property>
-        <property name="authoritiesProvider">
-            <ref bean="defaultAuthoritiesProvider"/>
+    <bean class="com.wavemaker.runtime.security.DemoUserDetailsManager" id="demoUserDetailsService">
+        <property name="users">
+            <list>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="user"/>
+                    <constructor-arg value="7b6a43524a303e1f79313a6b124c1a"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_user</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="admin"/>
+                    <constructor-arg value="7b6a43524a24291762623a21080c6812"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+            </list>
         </property>
     </bean>
 </beans>
