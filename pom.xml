@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wavemaker.project</groupId>
-    <artifactId>Mobile_Localization_9</artifactId>
+    <artifactId>Mobile_Localization</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
     <build>
@@ -26,7 +26,7 @@
                 </excludes>
             </resource>
         </resources>
-        <finalName>Mobile_Localization_9</finalName>
+        <finalName>Mobile_Localization</finalName>
         <filters>
             <filter>profiles/${profile.props.file}/</filter>
         </filters>

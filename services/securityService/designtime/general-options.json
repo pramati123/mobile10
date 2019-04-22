@@ -1,11 +1,11 @@
 {
-  "enforceSecurity" : true,
+  "enforceSecurity" : false,
   "loginConfig" : {
     "type" : "PAGE",
     "pageName" : "Login",
     "sessionTimeout" : {
-      "type" : "PAGE",
-      "pageName" : "Login",
+      "type" : "DIALOG",
+      "pageName" : null,
       "timeoutValue" : 30
     }
   },
@@ -28,12 +28,12 @@
   "corsConfig" : {
     "enabled" : false,
     "maxAge" : 1600,
-    "allowCredentials" : false,
     "pathEntries" : [ {
       "name" : "root",
       "path" : "/**",
       "allowedOrigins" : "*"
-    } ]
+    } ],
+    "allowCredentials" : false
   },
   "tokenAuthConfig" : {
     "enabled" : true,
@@ -42,7 +42,7 @@
   },
   "authProviders" : [ "DEMO" ],
   "frameOptions" : {
-    "enabled" : true,
+    "enabled" : "true",
     "mode" : "SAMEORIGIN",
     "allowFromUrl" : null
   }
