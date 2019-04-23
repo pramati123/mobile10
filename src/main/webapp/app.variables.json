@@ -63,7 +63,8 @@
     "dataSet" : {
       "en" : "English",
       "hi-in" : "हिंदी (भारत)",
-      "te-in" : "తెలుగు (భారత దేశం)"
+      "te-in" : "తెలుగు (భారత దేశం)",
+      "fr" : "français"
     },
     "type" : "string",
     "isList" : false,
