@@ -1,32 +1,30 @@
-var $el = $;
 'use strict';
 var _renderQRCode;
 
 function renderQRCode() {
-    var qrele = $el.find('[name="qrcode"]')[0];
-    var QRErrorCorrectLevel = {
+    var qrEle = Prefab.Widgets.qrcode.$element.get(0);
+    var qrErrorCorrectLevel = {
         L: 1,
         M: 0,
         Q: 3,
         H: 2
     };
 
-    qrele.innerHTML = '';
-    var qrcode = new QRCode(qrele, {
-        'width': Prefab.width,
-        'height': Prefab.height,
+    qrEle.innerHTML = '';
+    var qrCode = new QRCode(qrEle, {
+        'width': parseInt(Prefab.width),
+        'height': parseInt(Prefab.height),
         'typeNumber': Prefab.type,
         'colorDark': Prefab.darkcolor,
         'colorLight': Prefab.lightcolor,
-        'correctLevel': QRErrorCorrectLevel[Prefab.level]
+        'correctLevel': qrErrorCorrectLevel[Prefab.level]
     });
 
-    qrcode.makeCode(Prefab.text);
+    qrCode.makeCode(Prefab.text);
 }
 _renderQRCode = _.debounce(renderQRCode, 100);
-
-function propertyChangeHandler() {
+Prefab.onPropertyChange = function (key, newVal, oldVal) {
     _renderQRCode();
-}
-Prefab.onPropertyChange = propertyChangeHandler;
+};
+
 Prefab.onReady = _renderQRCode;

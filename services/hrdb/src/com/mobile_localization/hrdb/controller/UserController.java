@@ -25,6 +25,8 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
+import com.wavemaker.tools.api.core.annotations.MapTo;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
 import com.wordnik.swagger.annotations.Api;
@@ -89,6 +91,18 @@ public class UserController {
 
         return user;
     }
+    
+    @ApiOperation(value = "Partially updates the User instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.PATCH)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public User patchUser(@PathVariable("id") Integer id, @RequestBody @MapTo(User.class) Map<String, Object> userPatch) {
+        LOGGER.debug("Partially updating User with id: {}" , id);
+
+        User user = userService.partialUpdate(id, userPatch);
+        LOGGER.debug("User details after partial update: {}" , user);
+
+        return user;
+    }
 
     @ApiOperation(value = "Deletes the User instance associated with the given id.")
     @RequestMapping(value = "/{id:.+}", method = RequestMethod.DELETE)
@@ -108,6 +122,7 @@ public class UserController {
     @ApiOperation(value = "Returns the list of User instances matching the search criteria.")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<User> searchUsersByQueryFilters( Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
         LOGGER.debug("Rendering Users list by query filter:{}", (Object) queryFilters);
         return userService.findAll(queryFilters, pageable);
@@ -124,6 +139,7 @@ public class UserController {
     @ApiOperation(value = "Returns the paginated list of User instances matching the optional query (q) request param. This API should be used only if the query string is too big to fit in GET request with request param. The request has to made in application/x-www-form-urlencoded format.")
     @RequestMapping(value="/filter", method = RequestMethod.POST, consumes= "application/x-www-form-urlencoded")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<User> filterUsers(@ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         LOGGER.debug("Rendering Users list by filter", query);
         return userService.findAll(query, pageable);
@@ -132,6 +148,7 @@ public class UserController {
     @ApiOperation(value = "Returns downloadable file for the data matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
     @RequestMapping(value = "/export/{exportType}", method = {RequestMethod.GET,  RequestMethod.POST}, produces = "application/octet-stream")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Downloadable exportUsers(@PathVariable("exportType") ExportType exportType, @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
          return userService.export(exportType, query, pageable);
     }
@@ -139,6 +156,7 @@ public class UserController {
     @ApiOperation(value = "Returns a URL to download a file for the data matching the optional query (q) request param and the required fields provided in the Export Options.") 
     @RequestMapping(value = "/export", method = {RequestMethod.POST}, consumes = "application/json")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportUsersAndGetURL(@RequestBody DataExportOptions exportOptions, Pageable pageable) {
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
@@ -152,6 +170,7 @@ public class UserController {
 	@ApiOperation(value = "Returns the total count of User instances matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
 	@RequestMapping(value = "/count", method = {RequestMethod.GET, RequestMethod.POST})
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Long countUsers( @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query) {
 		LOGGER.debug("counting Users");
 		return userService.count(query);
@@ -160,6 +179,7 @@ public class UserController {
     @ApiOperation(value = "Returns aggregated result with given aggregation info")
 	@RequestMapping(value = "/aggregations", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Page<Map<String, Object>> getUserAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return userService.getAggregatedValues(aggregationInfo, pageable);

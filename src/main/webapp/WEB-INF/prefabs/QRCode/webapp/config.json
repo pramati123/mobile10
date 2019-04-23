@@ -29,7 +29,7 @@
       "description" : "This property is used to set the complexity type. Use 1 for the lowest complexity"
     },
     "width" : {
-      "type" : "number",
+      "type" : "string",
       "bindable" : "in-bound",
       "value" : "100",
       "widget" : "string",
@@ -38,7 +38,7 @@
       "description" : ""
     },
     "height" : {
-      "type" : "number",
+      "type" : "string",
       "bindable" : "in-bound",
       "value" : "100",
       "widget" : "string",

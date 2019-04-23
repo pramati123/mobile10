@@ -1,8 +1,5 @@
 {
-  "messages" : {
-    "MESSAGE_LIVELIST_NO_DATA" : "No data found",
-    "MESSAGE_LIVELIST_LOADING" : "Loading ..."
-  },
+  "messages" : { },
   "formats" : {
     "date" : "yyyy-MM-dd",
     "time" : "hh:mm a"

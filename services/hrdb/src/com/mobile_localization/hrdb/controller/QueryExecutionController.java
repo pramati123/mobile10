@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wavemaker.commons.wrapper.StringWrapper;
 import com.wavemaker.runtime.data.export.ExportOptions;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
 import com.wordnik.swagger.annotations.Api;
@@ -53,6 +54,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HrdbUserData")
     @RequestMapping(value = "/queries/HrdbUserData/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHrdbUserData(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HrdbUserData");
 

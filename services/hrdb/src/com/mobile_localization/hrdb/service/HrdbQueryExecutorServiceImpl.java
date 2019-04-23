@@ -46,7 +46,7 @@ public class HrdbQueryExecutorServiceImpl implements HrdbQueryExecutorService {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HrdbUserData", params, HrdbUserDataResponse.class);
+        QueryProcedureInput<HrdbUserDataResponse> queryInput = new QueryProcedureInput<>("HrdbUserData", params, HrdbUserDataResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
