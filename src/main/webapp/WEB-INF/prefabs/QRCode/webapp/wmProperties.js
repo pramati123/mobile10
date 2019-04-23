@@ -1,1 +1,0 @@
-var _WM_APP_PROPERTIES = {"name":"QRCode","version":"1.0","defaultLanguage":"en","type":"PREFAB","homePage":"Main","platformType":"DEFAULT","activeTheme":"default"}

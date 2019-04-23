@@ -1,11 +1,11 @@
-<wm-page data-ng-controller="MainPageController" name="mainpage"> 
+<wm-page name="mainpage"> 
     <wm-left-panel content="leftnav" columnwidth="2" name="left_panel1"></wm-left-panel> 
     <wm-mobile-navbar name="mobile_navbar1" title="bind:appLocale.seg_title" leftnavpaneliconclass="wi wi-menu" backbutton="false"> 
         <wm-anchor caption="" name="AddLink" iconclass="wi wi-sign-out" on-tap="Actions.logoutAction.invoke()"></wm-anchor> 
     </wm-mobile-navbar> 
     <wm-content name="content1"> 
         <wm-page-content columnwidth="12" name="page_content1"> 
-            <wm-select class="select-locale" dataset="bind:Variables.supportedLocale.dataSet" on-change="changeAppLocale($scope)" placeholder="bind:appLocale.Selectlang" name="select1"></wm-select> 
+            <wm-select class="select-locale" dataset="bind:Variables.supportedLocale.dataSet" on-change="App.changeLocale(newVal);App.reload()" placeholder="bind:appLocale.Selectlang" name="select1"></wm-select> 
             <wm-segmented-control name="segmented_control1"> 
                 <wm-segment-content caption="bind:appLocale.seg_title + &quot; 1&quot;" name="segment_content1"> 
                     <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeUserList1" dataset="bind:Variables.HrdbUserData.dataSet" navigation="Pager" nodatamessage="bind:appLocale.MESSAGE_NO_DATA" loadingdatamsg="bind:appLocale.MESSAGE_LOADING" title="bind:appLocale.List_Title" subheading="bind:appLocale.seg_subtitle"> 
@@ -56,7 +56,7 @@
                         </wm-layoutgrid> 
                         <wm-form-field name="userId" displayname="User Id" required="true" show="false" generator="identity" primary-key="true" key="userId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field> 
                         <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action> 
-                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true" action=""></wm-form-action> 
                     </wm-liveform> 
                 </wm-segment-content> 
                 <wm-segment-content caption="bind:appLocale.seg_title + &quot; 2&quot;" name="segment_content2"> 
@@ -89,5 +89,5 @@
             </wm-segmented-control> 
         </wm-page-content> 
     </wm-content> 
-    <wm-mobile-tabbar dataset="bind:Variables.tabbar.dataSet" name="mobile_tabbar" itemlabel="bind:$root.appLocale[label]" itemicon="icon" itemlink="link" morebuttonlabel="bind:$root.appLocale.More"></wm-mobile-tabbar> 
+    <wm-mobile-tabbar dataset="bind:Variables.tabbar.dataSet" name="mobile_tabbar" itemlabel="bind:App.appLocale[label]" itemicon="icon" itemlink="link" morebuttonlabel="bind:App.appLocale.More"></wm-mobile-tabbar> 
 </wm-page>

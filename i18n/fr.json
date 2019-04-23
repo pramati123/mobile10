@@ -1,22 +1,33 @@
 {
-  "Account" : "Account",
-  "Albums" : "Albums",
-  "Equalizer" : "Equalizer",
-  "Favorites" : "Favorites",
-  "List_Title" : "User Info",
-  "List_title2" : "Employee Info",
-  "Login" : "Login",
-  "More" : "More",
-  "Password" : "Password",
-  "Playlists" : "Playlists",
-  "Rememberme" : "Remember me",
-  "Selectlang" : "Select Language",
-  "Signin" : "Sign In",
-  "Songs" : "Songs",
-  "Username" : "Username",
-  "enterpassword" : "Enter Password",
-  "enterusername" : "Enter Username",
-  "seg_subtitle" : "subtitle",
-  "seg_title" : "Title",
-  "test" : "test"
+  "messages" : {
+    "Account" : "Account",
+    "Albums" : "Albums",
+    "Equalizer" : "Equalizer",
+    "Favorites" : "Favorites",
+    "List_Title" : "User Info",
+    "List_title2" : "Employee Info",
+    "Login" : "Login",
+    "More" : "More",
+    "Password" : "Password",
+    "Playlists" : "Playlists",
+    "Rememberme" : "Remember me",
+    "Selectlang" : "Select Language",
+    "Signin" : "Sign In",
+    "Songs" : "Songs",
+    "Username" : "Username",
+    "enterpassword" : "Enter Password",
+    "enterusername" : "Enter Username",
+    "seg_subtitle" : "subtitle",
+    "seg_title" : "Title",
+    "test" : "test"
+  },
+  "formats" : {
+    "date" : "yyyy-MM-dd",
+    "time" : "hh:mm a"
+  },
+  "files" : {
+    "angular" : "fr",
+    "fullCalendar" : "fr",
+    "moment" : "fr"
+  }
 }

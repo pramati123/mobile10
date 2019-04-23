@@ -1,0 +1,9 @@
+[ {
+  "name" : "QRCode",
+  "version" : "1.1",
+  "artifactType" : "PREFAB"
+}, {
+  "name" : "bricks",
+  "version" : "2.5",
+  "artifactType" : "THEME"
+} ]
